@@ -1,1 +1,49 @@
-1111
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>HDD40FM Webamp</title>
+    <style>
+        body { 
+            background-color: #008080; 
+            background-image: radial-gradient(#006666 0.5px, transparent 0.5px), radial-gradient(#006666 0.5px, #008080 0.5px);
+            background-size: 4px 4px;
+            background-position: 0 0, 2px 2px;
+            margin: 0; 
+            overflow: hidden; 
+        }
+        #app { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="https://unpkg.com/webamp/built/webamp.bundle.min.js"></script>
+    <script>
+        const Webamp = window.Webamp;
+        if (Webamp && Webamp.browserIsSupported()) {
+            const webamp = new Webamp({
+                initialTracks: [
+                    { metaData: { artist: "HDD40FM main [UNCENSORED VERSION]", title: "192kbps Opus_ogg" }, url: "http://radio.40gb.club/radio/8000/HDD40radio.ogg" },
+                    { metaData: { artist: "HDD40FM main [UNCENSORED VERSION]", title: "192kbps MP3" }, url: "http://radio.40gb.club/radio/8000/HDD40radio.mp3" },
+                    { metaData: { artist: "HDD40FM main [UNCENSORED VERSION]", title: "64kbs mp3" }, url: "http://radio.40gb.club/radio/8000/HDD40radio64.mp3" },
+                    { metaData: { artist: "HDD40FM main [UNCENSORED VERSION]", title: "128kbs mp3" }, url: "http://radio.40gb.club/radio/8000/HDD40radio128.mp3" },
+                    { metaData: { artist: "HDD40FM main [UNCENSORED VERSION]", title: "96kbps AAC+" }, url: "http://radio.40gb.club/radio/8000/HDD40radio96.aac" },
+                    { metaData: { artist: "HDD40FM main [UNCENSORED VERSION]", title: "64kbps AAC+" }, url: "http://radio.40gb.club/radio/8000/HDD40radio64.aac" },
+                    { metaData: { artist: "HDD40FM Lite", title: "192kbps MP3" }, url: "http://radio.40gb.club/radio/8010/HD40Fm_Lite.mp3" },
+                    { metaData: { artist: "HDD40FM Lite", title: "192kbps OPUS" }, url: "http://radio.40gb.club/radio/8010/192kbps(Opus).ogg" },
+                    { metaData: { artist: "HDD40FM Lite", title: "96kbps AAC" }, url: "http://radio.40gb.club/radio/8010/HD40Fm_Lite_96.aac" },
+                    { metaData: { artist: "HDD40FM Lite", title: "64kbps AAC" }, url: "http://radio.40gb.club/radio/8010/HD40Fm_Lite_64.aac" },
+                    { metaData: { artist: "HDD40FM Lite", title: "128kbs MP3" }, url: "http://radio.40gb.club/radio/8010/HD40Fm_Lite128.mp3" }
+                ],
+                // Окна просто аккуратно сложены друг под другом
+                __initialWindowLayout: {
+                    main: { position: { x: 0, y: 0 } },
+                    equalizer: { position: { x: 0, y: 116 } },
+                    playlist: { position: { x: 0, y: 232 } }
+                }
+            });
+            webamp.renderWhenReady(document.getElementById('app'));
+        }
+    </script>
+</body>
+</html>
